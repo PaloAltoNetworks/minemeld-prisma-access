@@ -1,0 +1,16 @@
+{
+    "version": "0.0b1",
+    "name": "minemeld-prisma-access",
+    "author": "Palo Alto Networks",
+    "author_email": "devrel@paloaltonetworks.com",
+    "description": "MineMeld for Prisma Access API",
+    "entry_points": {
+        "minemeld_nodes": {
+            "mmprismaaccess.Miner": "mmprismaaccess.node:Miner"
+        },
+        "minemeld_prototypes": {
+            "mmprismaaccess.prototypes": "mmprismaaccess:prototypes"
+        }
+    },
+    "manifest_version": 0
+}

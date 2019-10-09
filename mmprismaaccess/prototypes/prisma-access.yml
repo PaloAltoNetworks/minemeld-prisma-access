@@ -1,0 +1,26 @@
+description: >
+    CrowdStrike was founded in 2011 to fix a fundamental problem: The
+    sophisticated attacks that were forcing the world’s leading businesses
+    into the headlines could not be solved with existing malware-based
+    defenses.
+url: https://www.crowdstrike.com/
+
+prototypes:
+    indicators:
+        author: MineMeld Core Team
+        description: >
+            Miner for Prisma Access API
+        class: mmprismaaccess.Miner
+        development_status: EXPERIMENTAL
+        node_type: miner
+        tags:
+            - ShareLevelRed
+        indicator_types:
+            - any
+        config:
+            source_name: prismaaccess.api
+            age_out:
+                sudden_death: true
+                default: null
+            attributes:
+                share_level: red
