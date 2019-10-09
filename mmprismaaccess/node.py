@@ -70,7 +70,7 @@ class Miner(BasePollerFT):
             verify=self.verify_cert,
             timeout=self.polling_timeout,
             headers=headers,
-            params=self.params
+            params=self.api_params
         )
 
         r = requests.get(
