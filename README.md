@@ -1,4 +1,4 @@
-# minemeld-cs
+# minemeld-prisma-access
 
-MineMeld Miner for CrowdStrike Indicators API
+MineMeld Miner for Prisma Access API
 
