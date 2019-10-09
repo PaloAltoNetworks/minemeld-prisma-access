@@ -104,7 +104,13 @@ class Miner(BasePollerFT):
         for api_key in self.api_keys:
             try:
                 for address in self._query_api(api_key):
-                    _, real_address = address.split(':', 1)
+                    if isinstance(address, str) or isinstance(address, unicode):
+                        _, real_address = address.split(':', 1)
+                    elif isinstance(addresses, dict):
+                        address = address["address"]
+                    else:
+                        raise RuntimeError('{} - Unknown address type: {!r}'.format(self.name, address))
+
                     addresses.add(real_address)
 
             except Exception:

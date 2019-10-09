@@ -6,7 +6,7 @@ description: >
 url: https://www.crowdstrike.com/
 
 prototypes:
-    indicators:
+    miner:
         author: MineMeld Core Team
         description: >
             Miner for Prisma Access API
@@ -24,3 +24,4 @@ prototypes:
                 default: null
             attributes:
                 share_level: red
+                confidence: 100
