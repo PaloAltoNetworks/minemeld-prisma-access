@@ -1,15 +1,12 @@
 description: >
-    CrowdStrike was founded in 2011 to fix a fundamental problem: The
-    sophisticated attacks that were forcing the world’s leading businesses
-    into the headlines could not be solved with existing malware-based
-    defenses.
-url: https://www.crowdstrike.com/
+    Miners for Prisma Access API
+url: https://docs.paloaltonetworks.com/prisma/prisma-access/prisma-access-panorama-admin/prisma-access-overview/retrieve-ip-addresses-for-prisma-access
 
 prototypes:
-    miner:
+    all_egress:
         author: MineMeld Core Team
         description: >
-            Miner for Prisma Access API
+            All Prisma Access egress IPs 
         class: mmprismaaccess.Miner
         development_status: EXPERIMENTAL
         node_type: miner
@@ -18,10 +15,276 @@ prototypes:
         indicator_types:
             - any
         config:
-            source_name: prismaaccess.api
+            source_name: prismaaccess.egress_all
             age_out:
                 sudden_death: true
                 default: null
             attributes:
                 share_level: red
                 confidence: 100
+            params:
+                get_egress_ip_all: "yes"
+    portal_public:
+        author: MineMeld Core Team
+        description: >
+            All Prisma Access Portal public IPs 
+        class: mmprismaaccess.Miner
+        development_status: EXPERIMENTAL
+        node_type: miner
+        tags:
+            - ShareLevelRed
+        indicator_types:
+            - any
+        config:
+            source_name: prismaaccess.portal_public
+            age_out:
+                sudden_death: true
+                default: null
+            attributes:
+                share_level: red
+                confidence: 100
+            params:
+                fwType: "gpcs_gp_portal"
+                addrType: "public_ip"
+    portal_egress:
+        author: MineMeld Core Team
+        description: >
+            All Prisma Access Portal public IPs 
+        class: mmprismaaccess.Miner
+        development_status: EXPERIMENTAL
+        node_type: miner
+        tags:
+            - ShareLevelRed
+        indicator_types:
+            - any
+        config:
+            source_name: prismaaccess.portal_egress
+            age_out:
+                sudden_death: true
+                default: null
+            attributes:
+                share_level: red
+                confidence: 100
+            params:
+                fwType: "gpcs_gp_portal"
+                addrType: "egress_ip_list"
+    portal_loopback:
+        author: MineMeld Core Team
+        description: >
+            All Prisma Access Portal loopback IPs 
+        class: mmprismaaccess.Miner
+        development_status: EXPERIMENTAL
+        node_type: miner
+        tags:
+            - ShareLevelRed
+        indicator_types:
+            - any
+        config:
+            source_name: prismaaccess.portal_loopback
+            age_out:
+                sudden_death: true
+                default: null
+            attributes:
+                share_level: red
+                confidence: 100
+            params:
+                fwType: "gpcs_gp_portal"
+                addrType: "loopback_ip"
+    gateway_public:
+        author: MineMeld Core Team
+        description: >
+            All Prisma Access Gateway public IPs 
+        class: mmprismaaccess.Miner
+        development_status: EXPERIMENTAL
+        node_type: miner
+        tags:
+            - ShareLevelRed
+        indicator_types:
+            - any
+        config:
+            source_name: prismaaccess.gateway_public
+            age_out:
+                sudden_death: true
+                default: null
+            attributes:
+                share_level: red
+                confidence: 100
+            params:
+                fwType: "gpcs_gp_gw"
+                addrType: "public_ip"
+    gateway_egress:
+        author: MineMeld Core Team
+        description: >
+            All Prisma Access Gateway egress IPs 
+        class: mmprismaaccess.Miner
+        development_status: EXPERIMENTAL
+        node_type: miner
+        tags:
+            - ShareLevelRed
+        indicator_types:
+            - any
+        config:
+            source_name: prismaaccess.gateway_egress
+            age_out:
+                sudden_death: true
+                default: null
+            attributes:
+                share_level: red
+                confidence: 100
+            params:
+                fwType: "gpcs_gp_gw"
+                addrType: "egress_ip_list"
+    gateway_loopback:
+        author: MineMeld Core Team
+        description: >
+            All Prisma Access Gateway loopback IPs 
+        class: mmprismaaccess.Miner
+        development_status: EXPERIMENTAL
+        node_type: miner
+        tags:
+            - ShareLevelRed
+        indicator_types:
+            - any
+        config:
+            source_name: prismaaccess.gateway_loopback
+            age_out:
+                sudden_death: true
+                default: null
+            attributes:
+                share_level: red
+                confidence: 100
+            params:
+                fwType: "gpcs_gp_gw"
+                addrType: "loopback_ip"
+    remote_network_public:
+        author: MineMeld Core Team
+        description: >
+            All Prisma Access Remote Network public IPs 
+        class: mmprismaaccess.Miner
+        development_status: EXPERIMENTAL
+        node_type: miner
+        tags:
+            - ShareLevelRed
+        indicator_types:
+            - any
+        config:
+            source_name: prismaaccess.remote_network_public
+            age_out:
+                sudden_death: true
+                default: null
+            attributes:
+                share_level: red
+                confidence: 100
+            params:
+                fwType: "gpcs_remote_network"
+                addrType: "public_ip"
+    remote_network_egress:
+        author: MineMeld Core Team
+        description: >
+            All Prisma Access Remote Network egress IPs 
+        class: mmprismaaccess.Miner
+        development_status: EXPERIMENTAL
+        node_type: miner
+        tags:
+            - ShareLevelRed
+        indicator_types:
+            - any
+        config:
+            source_name: prismaaccess.remote_network_egress
+            age_out:
+                sudden_death: true
+                default: null
+            attributes:
+                share_level: red
+                confidence: 100
+            params:
+                fwType: "gpcs_remote_network"
+                addrType: "egress_ip_list"
+    remote_network_loopback:
+        author: MineMeld Core Team
+        description: >
+            All Prisma Access Remote Network loopback IPs 
+        class: mmprismaaccess.Miner
+        development_status: EXPERIMENTAL
+        node_type: miner
+        tags:
+            - ShareLevelRed
+        indicator_types:
+            - any
+        config:
+            source_name: prismaaccess.remote_network_loopback
+            age_out:
+                sudden_death: true
+                default: null
+            attributes:
+                share_level: red
+                confidence: 100
+            params:
+                fwType: "gpcs_remote_network"
+                addrType: "loopback_ip"
+    clean_pipe_public:
+        author: MineMeld Core Team
+        description: >
+            All Prisma Access Clean Pipe public IPs 
+        class: mmprismaaccess.Miner
+        development_status: EXPERIMENTAL
+        node_type: miner
+        tags:
+            - ShareLevelRed
+        indicator_types:
+            - any
+        config:
+            source_name: prismaaccess.clean_pipe_public
+            age_out:
+                sudden_death: true
+                default: null
+            attributes:
+                share_level: red
+                confidence: 100
+            params:
+                fwType: "gpcs_clean_pipe"
+                addrType: "public_ip"
+    clean_pipe_egress:
+        author: MineMeld Core Team
+        description: >
+            All Prisma Access Clean Pipe egress IPs 
+        class: mmprismaaccess.Miner
+        development_status: EXPERIMENTAL
+        node_type: miner
+        tags:
+            - ShareLevelRed
+        indicator_types:
+            - any
+        config:
+            source_name: prismaaccess.clean_pipe_egress
+            age_out:
+                sudden_death: true
+                default: null
+            attributes:
+                share_level: red
+                confidence: 100
+            params:
+                fwType: "gpcs_clean_pipe"
+                addrType: "egress_ip_list"
+    clean_pipe_loopback:
+        author: MineMeld Core Team
+        description: >
+            All Prisma Access Clean Pipe loopback IPs 
+        class: mmprismaaccess.Miner
+        development_status: EXPERIMENTAL
+        node_type: miner
+        tags:
+            - ShareLevelRed
+        indicator_types:
+            - any
+        config:
+            source_name: prismaaccess.clean_pipe_loopback
+            age_out:
+                sudden_death: true
+                default: null
+            attributes:
+                share_level: red
+                confidence: 100
+            params:
+                fwType: "gpcs_clean_pipe"
+                addrType: "loopback_ip"

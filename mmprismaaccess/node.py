@@ -12,7 +12,7 @@ from minemeld.ft.utils import interval_in_sec
 LOG = logging.getLogger(__name__)
 
 
-PRISMA_ACCESS_API_QUERY = 'https://api.gpcloudservice.com/getAddrList/latest?fwType=gpcs_remote_network&addrType=public_ip'
+PRISMA_ACCESS_API_QUERY = 'https://api.gpcloudservice.com/getAddrList/latest'
 
 class Miner(BasePollerFT):
     def configure(self):
@@ -26,6 +26,8 @@ class Miner(BasePollerFT):
             os.environ['MM_CONFIG_DIR'],
             '%s_side_config.yml' % self.name
         )
+
+        self.api_params = self.config.get('api_params', {})
 
         self._load_side_config()
 
@@ -67,7 +69,8 @@ class Miner(BasePollerFT):
             stream=False,
             verify=self.verify_cert,
             timeout=self.polling_timeout,
-            headers=headers
+            headers=headers,
+            params=self.params
         )
 
         r = requests.get(
